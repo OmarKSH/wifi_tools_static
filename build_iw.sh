@@ -1,8 +1,9 @@
 #!/bin/sh
 set -e
 
-iw_txz="iw-5.9.tar.xz"
-iw_url="https://kernel.org/pub/software/network/iw/$iw_txz"
+iw_url="https://kernel.org/pub/software/network/iw"
+iw_txz="$(wget -O - $iw_url | grep '.xz' | cut -d'>' -f2 | cut -d'<' -f1 | sort | tail -1)"
+iw_url="$iw_url/$iw_txz"
 iw_dir="${iw_txz%.tar.xz}"
 
 prefix="`pwd`/prefix"
