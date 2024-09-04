@@ -1,18 +1,15 @@
-.PHONY: all clean libnl iw wpa_supplicant
+.PHONY: all clean iw wpa_supplicant
 
-all: libnl iw wpa_supplicant
-
-libnl:
-	./build_libnl.sh
+all: iw wpa_supplicant
 
 openssl:
 	./build_openssl.sh
 
-iw:	libnl
+iw:	
 	./build_iw.sh
 
-wpa_supplicant:	libnl
+wpa_supplicant:
 	./build_wpas.sh
 
 clean:
-	rm -rf *.tar.gz *.tar.xz prefix/ binaries/ libnl-3.5.0/ openssl-1.1.1g/ iw-*/ wpa_supplicant-*/
+	rm -rf *.tar.gz *.tar.xz prefix/ binaries/ openssl-1.1.1g/ iw-*/ wpa_supplicant-*/

@@ -6,7 +6,7 @@ This repository contains scripts for building statically linked **iw** and **wpa
 ## How to build
 ### Install requirements (Alpine Linux edge)
 ```
-apk add build-base bison flex gawk linux-headers pkgconf readline-static perl
+apk add build-base bison flex gawk linux-headers pkgconf readline-static perl libnl3-dev libnl3-static
 ```
 ### Build
 #### iw
