@@ -1,8 +1,9 @@
 #!/bin/sh
 set -e
 
-wpas_tgz="wpa_supplicant-2.9.tar.gz"
-wpas_url="https://www.w1.fi/releases/$wpas_tgz"
+wpas_url="https://www.w1.fi/releases"
+wpas_tgz="$(wget -O - $wpas_url | grep -E '>wpa_supplicant-[0-9.]+.tar.gz<' | cut -d'>' -f7 | cut -d'<' -f1 | sort | tail -1)"
+wpas_url="$wpas_url/$wpas_tgz"
 wpas_dir="${wpas_tgz%.tar.gz}"
 
 prefix="`pwd`/prefix"
